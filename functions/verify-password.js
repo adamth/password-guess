@@ -12,11 +12,10 @@ exports.handler = async (event) => {
 
   try {
     const { hint, userAnswer } = JSON.parse(event.body);
-    console.log(hint, userAnswer);
     const { data: password } = await client.query(
       q.Get(q.Match(q.Index("password_by_hint"), hint.toString()))
     );
-    console.log(password);
+
     const response = verifyPassword(password, userAnswer);
 
     return {

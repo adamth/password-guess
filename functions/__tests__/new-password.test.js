@@ -1,4 +1,4 @@
-import { handler } from "../new-password";
+const { handler } = require("../new-password");
 
 describe("handler", () => {
   let response;
@@ -8,8 +8,10 @@ describe("handler", () => {
   });
 
   it("returns a successful response", () => {
-    expect.hasAssertions();
-
     expect(response.statusCode).toEqual(200);
+  });
+
+  it("returns a new password hint", () => {
+    expect(JSON.parse(response.body).data.hint.length).toBe(8);
   });
 });

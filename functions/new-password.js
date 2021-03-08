@@ -24,7 +24,7 @@ exports.handler = async () => {
 
     return {
       statusCode: 200,
-      body: JSON.stringify(passwordRecord),
+      body: JSON.stringify({ data: { hint } }),
     };
   } catch (error) {
     return {

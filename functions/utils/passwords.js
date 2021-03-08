@@ -38,6 +38,7 @@ const verifyPassword = (password, userAnswer) => {
       correct: true,
       hint: password.hint,
       answer: password.password,
+      highlight: [],
     };
   }
 
